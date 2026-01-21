@@ -1,0 +1,63 @@
+
+<odoo>
+    <record id="view_print_job_tree" model="ir.ui.view">
+        <field name="name">print.job.tree</field>
+        <field name="model">print.job</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="partner_id"/>
+                <field name="substrate_id"/>
+                <field name="print_type"/>
+                <field name="quality"/>
+                <field name="quantity"/>
+                <field name="area_m2"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_print_job_form" model="ir.ui.view">
+        <field name="name">print.job.form</field>
+        <field name="model">print.job</field>
+        <field name="arch" type="xml">
+            <form string="Trabajo de impresión">
+                <header>
+                    <button name="action_create_mo" type="object" string="Crear OF" states="approved,quoted,draft" class="oe_highlight"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,quoted,approved,in_production,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="sale_order_id"/>
+                        <field name="partner_id" readonly="1"/>
+                    </group>
+                    <group string="Especificaciones">
+                        <field name="width_mm"/>
+                        <field name="height_mm"/>
+                        <field name="quantity"/>
+                        <field name="area_m2" readonly="1"/>
+                        <field name="substrate_id"/>
+                        <field name="print_type"/>
+                        <field name="quality"/>
+                    </group>
+                    <group string="Producción">
+                        <field name="mo_id"/>
+                        <field name="cost_estimated" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Notas">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_print_job" model="ir.actions.act_window">
+        <field name="name">Trabajos</field>
+        <field name="res_model">print.job</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+</odoo>

@@ -1,0 +1,46 @@
+
+<odoo>
+    <record id="view_print_machine_tree" model="ir.ui.view">
+        <field name="name">print.machine.tree</field>
+        <field name="model">print.machine</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="machine_type"/>
+                <field name="technology"/>
+                <field name="speed_m2_h"/>
+                <field name="cost_hour"/>
+                <field name="width_max_mm"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_print_machine_form" model="ir.ui.view">
+        <field name="name">print.machine.form</field>
+        <field name="model">print.machine</field>
+        <field name="arch" type="xml">
+            <form string="Máquina">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="machine_type"/>
+                        <field name="technology"/>
+                        <field name="width_max_mm"/>
+                    </group>
+                    <group string="Costos y capacidad">
+                        <field name="speed_m2_h"/>
+                        <field name="cost_hour"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_print_machine" model="ir.actions.act_window">
+        <field name="name">Máquinas</field>
+        <field name="res_model">print.machine</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

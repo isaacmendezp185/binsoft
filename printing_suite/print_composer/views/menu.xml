@@ -1,0 +1,5 @@
+
+<odoo>
+    <menuitem id="menu_print_tools" name="Herramientas" parent="print_materials.menu_print_root" sequence="30"/>
+    <menuitem id="menu_print_composer" name="Asistente de Composición" parent="menu_print_tools" action="action_print_composer"/>
+</odoo>

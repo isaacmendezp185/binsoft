@@ -1,0 +1,5 @@
+
+<odoo>
+    <menuitem id="menu_print_jobs_root" name="Operación" parent="print_materials.menu_print_root" sequence="20"/>
+    <menuitem id="menu_print_jobs" name="Trabajos" parent="menu_print_jobs_root" action="action_print_job"/>
+</odoo>

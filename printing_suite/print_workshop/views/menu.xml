@@ -1,0 +1,4 @@
+
+<odoo>
+    <menuitem id="menu_print_workshop" name="Taller" parent="print_materials.menu_print_root" action="action_print_job_kanban" sequence="40"/>
+</odoo>

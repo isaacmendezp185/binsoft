@@ -1,0 +1,49 @@
+
+<odoo>
+    <record id="view_print_template_tree" model="ir.ui.view">
+        <field name="name">print.template.tree</field>
+        <field name="model">print.template</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="width_mm"/>
+                <field name="height_mm"/>
+                <field name="substrate_id"/>
+                <field name="print_type"/>
+                <field name="quality"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_print_template_form" model="ir.ui.view">
+        <field name="name">print.template.form</field>
+        <field name="model">print.template</field>
+        <field name="arch" type="xml">
+            <form string="Plantilla">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="substrate_id"/>
+                    </group>
+                    <group string="Medidas y parámetros">
+                        <field name="width_mm"/>
+                        <field name="height_mm"/>
+                        <field name="print_type"/>
+                        <field name="quality"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button string="Crear trabajo" name="action_create_job" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_print_template" model="ir.actions.act_window">
+        <field name="name">Plantillas</field>
+        <field name="res_model">print.template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_print_templates" name="Plantillas" parent="print_materials.menu_print_root" action="action_print_template" sequence="35"/>
+</odoo>

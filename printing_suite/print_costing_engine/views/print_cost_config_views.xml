@@ -1,0 +1,56 @@
+
+<odoo>
+    <record id="view_print_cost_config_tree" model="ir.ui.view">
+        <field name="name">print.cost.config.tree</field>
+        <field name="model">print.cost.config</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="overhead_rate"/>
+                <field name="default_machine_id"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_print_cost_config_form" model="ir.ui.view">
+        <field name="name">print.cost.config.form</field>
+        <field name="model">print.cost.config</field>
+        <field name="arch" type="xml">
+            <form string="Parámetros de Costeo">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="overhead_rate"/>
+                        <field name="default_machine_id"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_print_cost_config" model="ir.actions.act_window">
+        <field name="name">Parámetros de Costeo</field>
+        <field name="res_model">print.cost.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Añadir botón en print.job -->
+    <record id="view_print_job_form_inherit_cost" model="ir.ui.view">
+        <field name="name">print.job.form.inherit.cost</field>
+        <field name="model">print.job</field>
+        <field name="inherit_id" ref="print_job_manager.view_print_job_form"/>
+        <field name="arch" type="xml">
+            <sheet position="inside">
+                <group string="Costos estimados">
+                    <field name="cost_material" readonly="1"/>
+                    <field name="cost_machine" readonly="1"/>
+                    <field name="cost_ink" readonly="1"/>
+                    <field name="cost_total" readonly="1"/>
+                    <button name="action_estimate_cost" type="object" string="Estimar costos" class="oe_highlight"/>
+                </group>
+            </sheet>
+        </field>
+    </record>
+</odoo>

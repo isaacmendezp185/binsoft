@@ -1,0 +1,9 @@
+
+<odoo>
+    <menuitem id="menu_print_root" name="Impresión Gran Formato" sequence="10"/>
+    <menuitem id="menu_print_config" name="Configuración" parent="menu_print_root" sequence="10"/>
+    <menuitem id="menu_print_materials" name="Materiales" parent="menu_print_config" sequence="10"/>
+
+    <menuitem id="menu_print_substrate" name="Sustratos" parent="menu_print_materials" action="action_print_substrate"/>
+    <menuitem id="menu_print_machine" name="Máquinas" parent="menu_print_materials" action="action_print_machine"/>
+</odoo>

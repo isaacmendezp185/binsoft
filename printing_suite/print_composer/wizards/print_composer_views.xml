@@ -1,0 +1,32 @@
+
+<odoo>
+    <record id="view_print_composer_wizard" model="ir.ui.view">
+        <field name="name">print.composer.wizard.form</field>
+        <field name="model">print.composer.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Asistente de Composición" create="false" edit="false">
+                <group>
+                    <field name="name"/>
+                    <field name="width_mm"/>
+                    <field name="height_mm"/>
+                    <field name="quantity"/>
+                    <field name="substrate_id"/>
+                    <field name="print_type"/>
+                    <field name="quality"/>
+                    <field name="create_mo"/>
+                </group>
+                <footer>
+                    <button string="Crear" name="action_create" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_print_composer" model="ir.actions.act_window">
+        <field name="name">Asistente de Composición</field>
+        <field name="res_model">print.composer.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
